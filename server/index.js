@@ -1,9 +1,12 @@
 const app = require('express')();
 const http = require('http').createServer(app)
-const { Server } = require('socket.io');
-const io = new Server(http)
 const cors = require('cors');
 app.use(cors());
+const io = require('socket.io')(http, {
+  cors: {
+    origin: "http://localhost:3000"
+  }
+})
 
 const PORT = 3003;
 
@@ -14,7 +17,10 @@ app.get('/', (req, res) => {
 io.on('connection', (socket) => {
   console.log(`${socket.id} user just connected`);
 
-
+  socket.on('message', (data) => {
+    console.log(data);
+    io.emit('receive', data);
+  })
 
   socket.on('disconnect', () => {
     console.log(`${socket.id} user left the room.`)

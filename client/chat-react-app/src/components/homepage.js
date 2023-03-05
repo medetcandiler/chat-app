@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 
-function Homepage() {
-  const [userName, setUserName] = useState('')
-  const [error, setError ] = useState('');
+function Homepage({ user, setUser }) {
+  const [userName, setUserName] = useState('');
+  const [error, setError] = useState('');
   const navigate = useNavigate();
+
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -14,14 +15,15 @@ function Homepage() {
         setError('')
       }, 1500)
     } else {
-      localStorage.setItem('userName', userName)
+      setUser(userName)
       navigate('/chat');
     }
   }
 
+
   return (
     <div className="container-homepage">
-      <h1>Sign Up for Chating</h1>
+      <h1 className="newFont homepage">Sign Up for Chating</h1>
       <form onSubmit={handleSubmit} className='form-homepage'>
         <input
           type="text"
@@ -35,10 +37,10 @@ function Homepage() {
           value="Enter"
           className="btn btn-homepage"
         />
-        
+
       </form>
       {error && <div className="error error-homepage">{error}</div>}
-      
+
     </div>
   )
 }

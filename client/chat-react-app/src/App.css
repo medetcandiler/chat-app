@@ -6,6 +6,22 @@
 
 body {
   background-color: #f2f2f2;
+  color: #030303;
+}
+
+:root {
+  --newFont: 'Marck Script', cursive;
+}
+
+.newFont {
+  font-family: var(--newFont);
+  font-size: 4rem;
+  position: absolute;
+  top: 4rem;
+}
+
+.homepage {
+  top: 6rem;
 }
 
 .container-homepage {
@@ -23,23 +39,21 @@ body {
   margin-top: 1rem;
 }
 
-
 /* inputs area */
 .input {
   width: 300px;
-  padding: 10px;
+  padding: 15px;
   border-radius: 5px;
   border: 1px solid #020202;
 }
 
-.input-sender{
-  width: 630px;
+.input-sender {
+  width: 620px;
 }
-
 
 /* buttons area */
 .btn {
-  padding: 10px 20px;
+  padding: 15px 25px;
   background-color: #f2f2f2;
   border: 1px solid #020202;
   border-radius: 5px;
@@ -50,10 +64,12 @@ body {
   background-color: #020202;
   color: #f2f2f2;
 }
-.btn-sender{
+
+.btn-sender {
   background-color: green;
   color: #f2f2f2;
 }
+
 .btn-sender.btn:hover {
   background-color: #f2f2f2;
   color: #020202;
@@ -86,10 +102,9 @@ body {
 
 }
 
-
 /* chat area */
 .container-message {
-  background-color: #ffe5b4;
+  background-color: #e6e6fa;
   border: 1px solid #020202;
   width: 700px;
   height: 50vh;
@@ -105,6 +120,7 @@ body {
   border-radius: 10px;
   margin-left: auto;
   font-size: 15px;
+  margin-bottom: 5px;
 }
 
 .message-receive {
@@ -113,4 +129,5 @@ body {
   padding: 10px;
   border-radius: 10px;
   font-size: 15px;
+  margin-bottom: 5px;
 }
